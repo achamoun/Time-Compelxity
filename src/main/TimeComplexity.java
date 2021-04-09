@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Arrays;
-
 /**
  * 
  * @author aboud
@@ -19,19 +17,22 @@ import java.util.Arrays;
 public class TimeComplexity {
 
 	/**
+	 * Example, to find a number in an unsorted list.
+	 * 
 	 * Linear time complexity O(n), where "n" is the length of the array given in
-	 * parameter in this example.
+	 * parameter in this example. we are going to measure the time complexity of the
+	 * algorithm by counting how many time we check the statement "if (arr[i] ==
+	 * number)".
 	 * 
 	 * That means the proportion between the size of the input "n" and the number of
-	 * executions of the statement is linear. that means if "n" gets bigger by 1,
-	 * the number of executions of the statement "if(arr[i] == number)" gets bigger
-	 * also by 1.
+	 * executions of the statement is linear. that means the bigger n gets, the
+	 * bigger gets the time complexity.
 	 * 
 	 * @param arr:    the array to find the number in
 	 * @param number: the number to be found
 	 * @return: number of the execution of the statement "if(arr[i] == number)"
 	 */
-	public int findNumber(int[] arr, int number, int numberOfExecutedStatment) {
+	public int findNumberLinear(int[] arr, int number, int numberOfExecutedStatment) {
 
 		for (int i = 0; i < arr.length; i++) {
 
@@ -43,39 +44,42 @@ public class TimeComplexity {
 	}
 
 	/**
-	 * Logarithmic time complexity. O(log"n"), where "n" is the input in the
-	 * algorithm. The time complexity of this algorithm increases slowly, while the
-	 * input increases fast. the number of the executions of the statement "if (mid
-	 * == number)" is proportional to the logarithm of the size of "n".
+	 * Example Binary search, to find a number in a sorted array. 
 	 * 
-	 * Example, to find a number in a sorted array.
+	 * Logarithmic time complexity. O(log"n"), where "n" is the input in the
+	 * algorithm. we are going to measure the time complexity of the algorithm by
+	 * the number of calls of the method. This method will be called recursively in
+	 * a proportion with log"n". Which means finding a number in the sorted array
+	 * given in parameters has the time complexity O(log n)
+	 * 
+	 * Notice the number of calls of the method increases slowly, if the size of n
+	 * increases.
 	 * 
 	 * @param arr:    a sorted array of integers
 	 * @param number: the number to be found
-	 * @return: the number of the executions of the statement "if (mid == number)"
+	 * @return: the number of the executions of the statement (calls of the method)
 	 */
-	public int findNumberLogarithmically(int[] arr, int number, int numberOfExecutedStatment) {
+	public int findNumberlogarithmic(int[] arr, int number, int numberOfcalledMethods) {
 
 		int mid = arr[arr.length / 2];
-		numberOfExecutedStatment++;
+		numberOfcalledMethods++;
+
 		if (mid == number) {
-			return numberOfExecutedStatment;
-		}
-
-		if (number < mid) {
-
-			int[] firstHalfArray = new int[arr.length / 2];
-			for (int i = 0; i < arr.length / 2; i++) {
-				firstHalfArray[i] = arr[i];
-			}
-			return findNumberLogarithmically(firstHalfArray, number, numberOfExecutedStatment);
-
+			return numberOfcalledMethods;
+		} else if (number < mid) {
+			return findNumberlogarithmic(splitArray(arr, 0, arr.length / 2), number, numberOfcalledMethods);
 		} else {
-			int[] secondHalfArray = new int[arr.length / 2];
-			for (int i = arr.length / 2; i < arr.length; i++) {
-				secondHalfArray[i - (arr.length / 2)] = arr[i];
-			}
-			return findNumberLogarithmically(secondHalfArray, number, numberOfExecutedStatment);
+			return findNumberlogarithmic(splitArray(arr, arr.length / 2, arr.length), number, numberOfcalledMethods);
 		}
+	}
+
+	private int[] splitArray(int[] arr, int fromIndex, int toIndex) {
+
+		int[] splitArray = new int[arr.length / 2];
+		int y = 0;
+		for (int i = fromIndex; i < toIndex; i++) {
+			splitArray[y++] = arr[i];
+		}
+		return splitArray;
 	}
 }

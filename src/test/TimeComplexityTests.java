@@ -14,18 +14,18 @@ public class TimeComplexityTests {
 	 * Notice the linear proportion between the expected value of each test (in
 	 * worst case) with the size of the array in the test.
 	 */
-//	@Test
-//	void findNumber() {
-//
-//		int[] worstCaseArray1 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9 };
-//		int[] worstCaseArray2 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9, 11, 13, 14, 15 };
-//		int[] worstCaseArray3 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9, 11, 13, 14, 15, 77, 45, 33, 24, 56, 98, 12 };
-//
-//		assertEquals(8, timeComplexity.findNumber(worstCaseArray1, 9, 0));
-//		assertEquals(12, timeComplexity.findNumber(worstCaseArray2, 15, 0));
-//		assertEquals(19, timeComplexity.findNumber(worstCaseArray3, 12, 0));
-//
-//	}
+	@Test
+	void findNumber() {
+
+		int[] worstCaseArray1 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9 };
+		int[] worstCaseArray2 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9, 11, 13, 14, 15 };
+		int[] worstCaseArray3 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9, 11, 13, 14, 15, 77, 45, 33, 24, 56, 98, 12 };
+
+		assertEquals(8, timeComplexity.findNumberLinear(worstCaseArray1, 9, 0));
+		assertEquals(12, timeComplexity.findNumberLinear(worstCaseArray2, 15, 0));
+		assertEquals(19, timeComplexity.findNumberLinear(worstCaseArray3, 12, 0));
+
+	}
 
 	/**
 	 * Notice how the expected value in each test (in worst case) is proportional to
@@ -40,10 +40,10 @@ public class TimeComplexityTests {
 		int[] arrLog32 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
 				24, 25, 26, 27, 28, 29, 30, 31, 32 };
 
-		assertEquals(1, timeComplexity.findNumberLogarithmically(arrLog2, 2, 0));
-		assertEquals(2, timeComplexity.findNumberLogarithmically(arrLog4, 4, 0));
-		assertEquals(3, timeComplexity.findNumberLogarithmically(arrLog8, 8, 0));
-		assertEquals(4, timeComplexity.findNumberLogarithmically(arrLog16, 16, 0));
-		assertEquals(5, timeComplexity.findNumberLogarithmically(arrLog32, 32, 0));
+		assertEquals(1, timeComplexity.findNumberlogarithmic(arrLog2, 2, 0));
+		assertEquals(2, timeComplexity.findNumberlogarithmic(arrLog4, 4, 0));
+		assertEquals(3, timeComplexity.findNumberlogarithmic(arrLog8, 8, 0));
+		assertEquals(4, timeComplexity.findNumberlogarithmic(arrLog16, 16, 0));
+		assertEquals(5, timeComplexity.findNumberlogarithmic(arrLog32, 32, 0));
 	}
 }
