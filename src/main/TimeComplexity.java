@@ -44,12 +44,12 @@ public class TimeComplexity {
 	}
 
 	/**
-	 * Example Binary search, to find a number in a sorted array. 
+	 * Example Binary search, to find a number in a sorted array.
 	 * 
 	 * Logarithmic time complexity. O(log"n"), where "n" is the input in the
 	 * algorithm. we are going to measure the time complexity of the algorithm by
 	 * the number of calls of the method. This method will be called recursively in
-	 * a proportion with log"n". Which means finding a number in the sorted array
+	 * a proportion to log"n". Which means finding a number in the sorted array
 	 * given in parameters has the time complexity O(log n)
 	 * 
 	 * Notice the number of calls of the method increases slowly, if the size of n
@@ -81,5 +81,41 @@ public class TimeComplexity {
 			splitArray[y++] = arr[i];
 		}
 		return splitArray;
+	}
+
+	/**
+	 * Example Bubble Sort
+	 * 
+	 * Algorithms with a quadratic time complexity are proportional to "n²", where
+	 * "n" is the size of the input.
+	 * 
+	 * Nested loops are a good example of these algorithms. if we nest a loop of
+	 * size n in a loop of the same size, the algorithm will run n² times.
+	 * 
+	 * notice that the inner loop gets smaller while "i" gets bigger in the outer
+	 * loop. Which means the algorithm is a little bit faster than n². But we will
+	 * consider the inner loop runs complete n times while "i" gets bigger in the
+	 * outer loop. which means the algorithm has a time complexity of O(n²).
+	 * 
+	 * @param arr: unsorted array
+	 * @return sorted array
+	 */
+	public int[] sortBubbleQuadratic(int[] arr) {
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int y = 0; y < arr.length - i - 1; y++) {
+
+				if (arr[y] > arr[y + 1]) {
+					int bigger = arr[y];
+					int smaller = arr[y + 1];
+					// swap
+					arr[y] = smaller;
+					arr[y + 1] = bigger;
+				}
+			}
+		}
+
+		return arr;
 	}
 }
