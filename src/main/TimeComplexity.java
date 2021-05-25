@@ -17,6 +17,20 @@ package main;
 public class TimeComplexity {
 
 	/**
+	 * Algorithms with a constant time complexity are independent from the size of
+	 * the input.in this example the input is arr.
+	 * 
+	 * @param index: the index of the number to be found
+	 * @param arr:   the array of the numbers
+	 * 
+	 * @return: the number to be found
+	 */
+
+	public int findNumberConstantComplexity(int index, int[] arr) {
+		return arr[index];
+	}
+
+	/**
 	 * Example, to find a number in an unsorted list.
 	 * 
 	 * Linear time complexity O(n), where "n" is the length of the array given in

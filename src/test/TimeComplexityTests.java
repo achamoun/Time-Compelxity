@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,17 @@ import main.TimeComplexity;
 public class TimeComplexityTests {
 
 	TimeComplexity timeComplexity = new TimeComplexity();
+
+	@Test
+	void findNumberConstantComplexityTest() {
+
+		int[] worstCaseArray1 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9 };
+		int[] worstCaseArray2 = new int[] { 9, 11, 13, 14, 15, 3, 7, 10, 15, 88 };
+
+		assertEquals(7, timeComplexity.findNumberConstantComplexity(3, worstCaseArray1));
+		assertEquals(14, timeComplexity.findNumberConstantComplexity(3, worstCaseArray2));
+		assertNotEquals(3, timeComplexity.findNumberConstantComplexity(3, worstCaseArray1));
+	}
 
 	/**
 	 * Notice the linear proportion between the expected value of each test (in
