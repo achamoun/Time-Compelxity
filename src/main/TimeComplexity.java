@@ -125,7 +125,8 @@ public class TimeComplexity {
 	 * 0,1,1,2,3,5,8,13,21,34... The fibonacci number with index 3 is 2.
 	 * 
 	 * to find a fibonacci number with a given index "n", we have to call two
-	 * methods recursively to find out each fibonacci number. which means 2 power method calls.
+	 * methods recursively to find out each previous fibonacci number in the
+	 * sequence. which means 2 power n method calls.
 	 * 
 	 * @param index: index of the fibonacci number to be found
 	 * @return the fibonacci number
