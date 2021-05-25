@@ -16,7 +16,7 @@ public class TimeComplexityTests {
 	 * worst case) with the size of the array in the test.
 	 */
 	@Test
-	void findNumber() {
+	void findNumberLinearTest() {
 
 		int[] worstCaseArray1 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9 };
 		int[] worstCaseArray2 = new int[] { 2, 4, 5, 7, 3, 1, 6, 9, 11, 13, 14, 15 };
@@ -33,7 +33,7 @@ public class TimeComplexityTests {
 	 * the logarithm of the size of the array used in that test in the worst case.
 	 */
 	@Test
-	void findNumberLogarithmically() {
+	void findNumberLogarithmicTest() {
 		int[] arrLog2 = new int[] { 1, 2 };
 		int[] arrLog4 = new int[] { 1, 2, 3, 4 };
 		int[] arrLog8 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
@@ -58,5 +58,12 @@ public class TimeComplexityTests {
 		assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, timeComplexity.sortBubbleQuadratic(arr));
 		assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, timeComplexity.sortBubbleQuadratic(arr1));
 		assertArrayEquals(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, timeComplexity.sortBubbleQuadratic(arr));
+	}
+
+	@Test
+	void printFibonacciExponentialAlgorithmTest() {
+
+		assertEquals(233, timeComplexity.findFibonacciExponentialAlgorithm(13));
+
 	}
 }

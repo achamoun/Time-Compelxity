@@ -118,4 +118,27 @@ public class TimeComplexity {
 
 		return arr;
 	}
+
+	/**
+	 * Example finding a fibonacci number recursively. Each fibonacci number is the
+	 * sum of the two previous fibonacci numbers. the fibonacci sequence
+	 * 0,1,1,2,3,5,8,13,21,34... The fibonacci number with index 3 is 2.
+	 * 
+	 * to find a fibonacci number with a given index "n", we have to call two
+	 * methods recursively to find out each fibonacci number. which means 2 power method calls.
+	 * 
+	 * @param index: index of the fibonacci number to be found
+	 * @return the fibonacci number
+	 */
+	public int findFibonacciExponentialAlgorithm(int index) {
+
+		if (index == 0) {
+			return 0;
+		} else if (index == 1) {
+			return 1;
+		} else {
+			return findFibonacciExponentialAlgorithm(index - 1) + findFibonacciExponentialAlgorithm(index - 2);
+		}
+	}
+
 }
